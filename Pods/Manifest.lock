@@ -1,0 +1,73 @@
+PODS:
+  - Alamofire (5.0.0-rc.2)
+  - Braintree/Card (4.30.0):
+    - Braintree/Core
+  - Braintree/Core (4.30.0)
+  - Braintree/PaymentFlow (4.30.0):
+    - Braintree/Card
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPal (4.30.0):
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPalDataCollector (4.30.0):
+    - Braintree/Core
+    - Braintree/PayPalUtils
+  - Braintree/PayPalOneTouch (4.30.0):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+    - Braintree/PayPalUtils
+  - Braintree/PayPalUtils (4.30.0)
+  - Braintree/UnionPay (4.30.0):
+    - Braintree/Card
+    - Braintree/Core
+  - BraintreeDropIn (7.4.0):
+    - BraintreeDropIn/DropIn (= 7.4.0)
+  - BraintreeDropIn/DropIn (7.4.0):
+    - Braintree/Card (~> 4.27)
+    - Braintree/Core (~> 4.27)
+    - Braintree/PaymentFlow (~> 4.27)
+    - Braintree/PayPal (~> 4.27)
+    - Braintree/UnionPay (~> 4.27)
+    - BraintreeDropIn/UIKit
+  - BraintreeDropIn/UIKit (7.4.0)
+  - EstimoteSDK (4.28.0)
+  - GMStepper (2.2)
+  - KRActivityIndicatorView (3.0.4)
+  - KRProgressHUD (3.4.4):
+    - KRActivityIndicatorView (= 3.0.4)
+  - SwiftyJSON (4.3.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0.0-rc.2)
+  - BraintreeDropIn
+  - EstimoteSDK
+  - GMStepper
+  - KRProgressHUD
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - EstimoteSDK
+  trunk:
+    - Alamofire
+    - Braintree
+    - BraintreeDropIn
+    - GMStepper
+    - KRActivityIndicatorView
+    - KRProgressHUD
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
+  Braintree: 6c7b531ed255701cc69666a2f02d1324a2d95c41
+  BraintreeDropIn: ee413ce4f94b86179e5ff3f98eb847219610bb96
+  EstimoteSDK: cd930e53cd15ec32f9a738f339843a73b83620f6
+  GMStepper: 89fb106944dfcc3aa3add7164e3ebd463ea2104b
+  KRActivityIndicatorView: 549db10b9578d58bac73db063d8b544e8970f7f2
+  KRProgressHUD: c3b9a48a0ee4824ea13212ac3f1efa50dca021e3
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+
+PODFILE CHECKSUM: d82a6c5580d3efed54b525e5669a6b5044af1728
+
+COCOAPODS: 1.8.3

@@ -39,6 +39,13 @@
 			</array>
 		</dict>
 	</dict>
+    
+    <key>NSAppTransportSecurity</key>
+       <dict>
+           <key>NSAllowsArbitraryLoads</key>
+           <true/>
+       </dict>
+    
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -60,5 +67,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To use the beacons ABCS</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To use the beacons ABCD</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>To use the beacons</string>
 </dict>
 </plist>
