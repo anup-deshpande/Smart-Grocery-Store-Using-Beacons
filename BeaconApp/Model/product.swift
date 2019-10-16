@@ -19,8 +19,8 @@ class product{
     var discount:String?
     
     // Properties that are calculated after
-    var isAdded:Bool = false
-    var quantity:Int = 0
+   // var isAdded:Bool = false
+    var quantity:Int = 1
     
     
     init(json: JSON) {

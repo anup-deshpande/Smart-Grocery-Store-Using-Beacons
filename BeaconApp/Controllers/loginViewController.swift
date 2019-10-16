@@ -62,8 +62,10 @@ class loginViewController: UIViewController {
                 switch response.result{
                 case .success(let value):
                     self.errorView.alpha = 0
+                    
                     // Get token value from response
                     let json = JSON(value)
+                    print(json)
                     if json["status"].stringValue == "200"{
                     let token = json["token"].stringValue
                     let customerId = json["customerId"].stringValue

@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import KRProgressHUD
 
 class shoppingProductsViewController: UIViewController {
     
@@ -29,6 +30,8 @@ class shoppingProductsViewController: UIViewController {
     var customerID:String?
     
     var products = [product]()
+    var selectedProducts = [product]()
+    var previousBeacon:CLBeacon?
     
  
     override func viewDidLoad() {
@@ -69,8 +72,19 @@ class shoppingProductsViewController: UIViewController {
                 case .success(let value):
                     let json = JSON(value)
                   
+                    self.products.removeAll()
+                    
                     for parsedProduct in json["products"]{
                         self.products.append(product(json: parsedProduct.1))
+                    }
+                    
+                    // Sort products by region in place
+                    self.products.sort { (product1, product2) -> Bool in
+                        if product1.region! < product2.region!{
+                            return true
+                        }else{
+                            return false
+                        }
                     }
                             
                     self.collectionView.reloadData()
@@ -87,6 +101,8 @@ class shoppingProductsViewController: UIViewController {
     }
     
     func getShoppingProductsByRegion(region Region:String){
+        
+        print("Shopping products by region")
         
         let parameters: [String:String] = [
             "region":Region
@@ -146,6 +162,21 @@ class shoppingProductsViewController: UIViewController {
         self.performSegue(withIdentifier: "shopToLoginSegue", sender: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case "shopToCheckoutSegue":
+            
+            // Add selected products to cart
+            let destination = segue.destination as! checkoutViewController
+            destination.selectedProducts = self.selectedProducts
+            
+            break
+            
+        default:
+            break
+        }
+    }
+    
 }
 
 //MARK: Beacon Manager Delegate Methods
@@ -153,17 +184,78 @@ extension shoppingProductsViewController : ESTBeaconManagerDelegate{
     
     func beaconManager(_ manager: Any, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         
-        print(beacons.first!)
+          print(beacons)
+//        print("Major: \(beacons.first!.major)")
+//        print("Minor: \(beacons.first!.minor)")
+       
+        var flag = true
         
-        if beacons.first!.major == 7518 && beacons.first!.minor == 47661{
-            getShoppingProductsByRegion(region: "produce")
+        for beacon in beacons{
+            
+            if beacon.major == 7518 && beacon.minor == 47661{
+                
+                if previousBeacon == nil{
+                    
+                    previousBeacon = beacon
+                    getShoppingProductsByRegion(region: "produce")
+                    flag = false
+                    return
+                        
+                }else{
+                
+                    if previousBeacon!.major == beacon.major && previousBeacon!.minor == beacon.minor{
+                        return
+                    }
+                    else{
+                        previousBeacon = beacon
+                        getShoppingProductsByRegion(region: "produce")
+                        flag = false
+                        return
+                    }
+                }
+                      
+            }
+                   
+            if beacon.major == 45153 && beacon.minor == 9209{
+                      
+                
+                if previousBeacon == nil{
+                    
+                    previousBeacon = beacon
+                    getShoppingProductsByRegion(region: "lifestyle")
+                    flag = false
+                    return
+                    
+                   
+                        
+                }else{
+                    
+                    if previousBeacon!.major == beacon.major && previousBeacon!.minor == beacon.minor{
+                        return
+                    }else{
+                        
+                        previousBeacon = beacon
+                        getShoppingProductsByRegion(region: "lifestyle")
+                        flag = false
+                        return
+                        
+                    }
+                    
+                }
+                  
+            }
+            
         }
-        
-        if beacons.first!.major == 45153 && beacons.first!.minor == 9209{
-            getShoppingProductsByRegion(region: "lifestyle")
+       
+        if flag == true{
+            getShoppingProducts()
         }
         
     }
+    
+    
+    
+    
 }
 
 
@@ -218,20 +310,13 @@ extension shoppingProductsViewController: UICollectionViewDataSource{
     
     @objc func addToCartButtonTapped(sender: UIButton!){
         
-        if(products[sender.tag].isAdded == true){
-           sender.setImage(UIImage(systemName: "cart.badge.plus"), for: .normal)
-           sender.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            products[sender.tag].isAdded = false
-            products[sender.tag].quantity = 0
-           // selectedProducts.removeValue(forKey: sender.tag)
-        }else{
-            sender.setImage(UIImage(systemName: "cart.badge.minus"), for: .normal)
-            sender.tintColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
-            products[sender.tag].isAdded = true
-            products[sender.tag].quantity = 1
-            //selectedProducts[sender.tag] = products[sender.tag]
-        }
-            
+        
+        // TODO: Check if the product is already in the cart
+        selectedProducts.append(products[sender.tag])
+        
+        
+        KRProgressHUD.showSuccess(withMessage: "\(products[sender.tag].name!) is added to cart")
+        
     }
     
     

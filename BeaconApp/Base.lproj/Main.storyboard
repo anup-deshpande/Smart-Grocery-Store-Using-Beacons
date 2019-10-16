@@ -281,79 +281,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J6w-PY-xYj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J6w-PY-xYj">
                                 <rect key="frame" x="0.0" y="94" width="375" height="564.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="checkoutCell" rowHeight="125" id="aGG-WP-s5V" customClass="checkoutTableViewCell" customModule="BeaconApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="125"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="checkoutCell" rowHeight="125.33333587646484" id="aGG-WP-s5V" customClass="checkoutTableViewCell" customModule="BeaconApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="125.33333587646484"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aGG-WP-s5V" id="uER-bg-KD0" customClass="checkoutTableViewCell" customModule="BeaconApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aGG-WP-s5V" id="uER-bg-KD0">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125.33333587646484"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxC-3e-qnm">
-                                                    <rect key="frame" x="144" y="20" width="208" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2pD-QZ-txQ">
-                                                    <rect key="frame" x="20" y="11" width="92" height="97"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yjQ-0a-hvy">
+                                                    <rect key="frame" x="15" y="13" width="95" height="95"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="85" id="h90-HK-DAV"/>
-                                                        <constraint firstAttribute="width" constant="92" id="unm-Wa-LoE"/>
+                                                        <constraint firstAttribute="height" constant="95" id="TGW-HT-58g"/>
+                                                        <constraint firstAttribute="width" constant="95" id="YLt-Md-rgv"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phi-Ye-boD">
-                                                    <rect key="frame" x="147" y="45" width="205" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgW-Hm-qgI">
+                                                    <rect key="frame" x="125" y="12.999999999999998" width="200" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RC-YP-CnW" customClass="GMStepper" customModule="GMStepper">
-                                                    <rect key="frame" x="147" y="70" width="100" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWP-AY-0zQ">
+                                                    <rect key="frame" x="125" y="38.333333333333336" width="200" height="19.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GlK-bE-Pxz" customClass="GMStepper" customModule="GMStepper">
+                                                    <rect key="frame" x="125" y="62.666666666666657" width="100" height="30"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="27" id="cpW-Er-Qyu"/>
-                                                        <constraint firstAttribute="width" constant="100" id="fL9-KJ-tQK"/>
+                                                        <constraint firstAttribute="height" constant="30" id="rD0-Wk-MLZ"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
-                                                            <real key="value" value="0.0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
-                                                            <real key="value" value="20"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="stepValue">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="OxC-3e-qnm" secondAttribute="trailing" constant="8" id="0ov-T3-EuS"/>
-                                                <constraint firstItem="Phi-Ye-boD" firstAttribute="top" secondItem="OxC-3e-qnm" secondAttribute="bottom" constant="4" id="86d-Re-L0H"/>
-                                                <constraint firstItem="0RC-YP-CnW" firstAttribute="top" secondItem="Phi-Ye-boD" secondAttribute="bottom" constant="4" id="RpR-5r-2kO"/>
-                                                <constraint firstItem="2pD-QZ-txQ" firstAttribute="leading" secondItem="uER-bg-KD0" secondAttribute="leadingMargin" constant="5" id="X5d-zQ-ChW"/>
-                                                <constraint firstItem="2pD-QZ-txQ" firstAttribute="top" secondItem="uER-bg-KD0" secondAttribute="topMargin" id="cAi-AK-UDz"/>
-                                                <constraint firstItem="0RC-YP-CnW" firstAttribute="leading" secondItem="2pD-QZ-txQ" secondAttribute="trailing" constant="35" id="cZY-bP-p4n"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="2pD-QZ-txQ" secondAttribute="bottom" constant="6" id="dZV-9a-5Gc"/>
-                                                <constraint firstItem="Phi-Ye-boD" firstAttribute="leading" secondItem="2pD-QZ-txQ" secondAttribute="trailing" constant="35" id="gPA-d1-Ila"/>
-                                                <constraint firstItem="OxC-3e-qnm" firstAttribute="leading" secondItem="2pD-QZ-txQ" secondAttribute="trailingMargin" constant="40" id="k08-gx-JGP"/>
-                                                <constraint firstItem="OxC-3e-qnm" firstAttribute="top" secondItem="2pD-QZ-txQ" secondAttribute="topMargin" constant="1" id="t5h-0b-pWd"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Phi-Ye-boD" secondAttribute="trailing" constant="8" id="ysk-I3-T45"/>
+                                                <constraint firstItem="XgW-Hm-qgI" firstAttribute="top" secondItem="yjQ-0a-hvy" secondAttribute="firstBaseline" id="2co-IT-dxT"/>
+                                                <constraint firstItem="XgW-Hm-qgI" firstAttribute="leading" secondItem="yjQ-0a-hvy" secondAttribute="trailing" constant="15" id="5y1-8t-YpF"/>
+                                                <constraint firstItem="IWP-AY-0zQ" firstAttribute="top" secondItem="XgW-Hm-qgI" secondAttribute="bottom" constant="5" id="7Ba-FN-yPn"/>
+                                                <constraint firstItem="yjQ-0a-hvy" firstAttribute="leading" secondItem="uER-bg-KD0" secondAttribute="leadingMargin" id="Lua-eQ-sQO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="GlK-bE-Pxz" secondAttribute="trailing" constant="135" id="QMi-yM-yOn"/>
+                                                <constraint firstItem="GlK-bE-Pxz" firstAttribute="top" secondItem="IWP-AY-0zQ" secondAttribute="bottom" constant="5" id="VHD-Yx-qkK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XgW-Hm-qgI" secondAttribute="trailing" constant="35" id="dm2-Au-7Kd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IWP-AY-0zQ" secondAttribute="trailing" constant="35" id="ejM-KM-EsH"/>
+                                                <constraint firstItem="IWP-AY-0zQ" firstAttribute="leading" secondItem="yjQ-0a-hvy" secondAttribute="trailing" constant="15" id="fL1-Vy-SOg"/>
+                                                <constraint firstItem="GlK-bE-Pxz" firstAttribute="leading" secondItem="yjQ-0a-hvy" secondAttribute="trailing" constant="15" id="uly-QM-2V6"/>
+                                                <constraint firstItem="yjQ-0a-hvy" firstAttribute="top" secondItem="uER-bg-KD0" secondAttribute="topMargin" constant="2" id="w2z-Kf-wqt"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ProductQuantity" destination="0RC-YP-CnW" id="NQl-Zz-TTX"/>
-                                            <outlet property="productImage" destination="2pD-QZ-txQ" id="yMe-ll-R9a"/>
-                                            <outlet property="productName" destination="OxC-3e-qnm" id="tzf-Tj-k5D"/>
-                                            <outlet property="productPrice" destination="Phi-Ye-boD" id="k7t-LA-IXZ"/>
+                                            <outlet property="ProductQuantity" destination="GlK-bE-Pxz" id="Dlf-eK-dlL"/>
+                                            <outlet property="productImage" destination="yjQ-0a-hvy" id="dSG-iA-6QK"/>
+                                            <outlet property="productName" destination="XgW-Hm-qgI" id="kWP-Tx-u5n"/>
+                                            <outlet property="productPrice" destination="IWP-AY-0zQ" id="vAy-xQ-UoZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -440,6 +424,7 @@
         <image name="xmark.octagon" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="wya-Rh-zQM"/>
         <segue reference="UPQ-Yu-r2y"/>
     </inferredMetricsTieBreakers>
 </document>

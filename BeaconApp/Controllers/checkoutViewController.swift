@@ -91,6 +91,7 @@ class checkoutViewController: UIViewController {
                 switch response.result{
                 case .success(let value):
                     let json = JSON(value)
+                    print(json)
                     self.showDropIn(clientTokenOrTokenizationKey: json["clientToken"].stringValue)
                     break
                     
@@ -186,22 +187,28 @@ extension checkoutViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = checkoutTableView.dequeueReusableCell(withIdentifier: "checkoutCell", for: indexPath) as! checkoutTableViewCell
-            
+        
+        print(selectedProducts[indexPath.row].name!)
         
             cell.productName.text = selectedProducts[indexPath.row].name!
             cell.productPrice.text = "$" + selectedProducts[indexPath.row].price!
             cell.ProductQuantity.value = Double(selectedProducts[indexPath.row].quantity)
             
-            if selectedProducts[indexPath.row].imageURL! == "null"{
+            // Base64 to Image
+            let productString = selectedProducts[indexPath.row].imageURL!
+            
+            if productString != "No Image"{
+            let decodedData = NSData(base64Encoded: productString, options: .ignoreUnknownCharacters)
+                cell.productImage.image = UIImage(data: decodedData! as Data)
+            }
+            else{
                 cell.productImage.image = UIImage(named: "no-image")
-            }else{
-                cell.productImage.image = UIImage(named: selectedProducts[indexPath.row].imageURL!)
             }
            
             cell.ProductQuantity.tag = indexPath.row
             
             cell.ProductQuantity.addTarget(self, action: #selector(self.stepperValueChanged), for: .valueChanged)
-            
+           
             return cell
     }
     
