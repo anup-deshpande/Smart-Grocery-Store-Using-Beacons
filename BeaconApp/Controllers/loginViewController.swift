@@ -18,7 +18,7 @@ class loginViewController: UIViewController {
     @IBOutlet weak var errorView: UIView!
 
     //MARK: API URL Declarations
-    var loginAPI = "http://ec2-3-88-222-179.compute-1.amazonaws.com/api/user/login"
+    var loginAPI = "http://ec2-3-95-150-6.compute-1.amazonaws.com/api/user/login"
     
     let preferences = UserDefaults.standard
     

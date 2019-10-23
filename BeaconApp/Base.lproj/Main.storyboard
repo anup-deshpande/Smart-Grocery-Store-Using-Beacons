@@ -243,7 +243,7 @@
                                         <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="u5K-S5-Q8N">
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <connections>
-                                                <action selector="showCartButtonTapped:" destination="BYZ-38-t0r" id="khu-R6-QSF"/>
+                                                <action selector="showCartButtonTapped:" destination="BYZ-38-t0r" id="SKV-zC-cOn"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -265,6 +265,7 @@
                     <navigationItem key="navigationItem" id="wwF-dm-pkR"/>
                     <connections>
                         <outlet property="collectionView" destination="xN7-1l-uf7" id="Qtw-Rq-zzY"/>
+                        <outlet property="navigationBar" destination="nab-nh-TIh" id="6Xs-sx-0q9"/>
                         <segue destination="CN3-jf-03o" kind="presentation" identifier="shopToLoginSegue" modalPresentationStyle="fullScreen" id="rFw-fc-fvv"/>
                         <segue destination="kl6-9m-73N" kind="presentation" identifier="shopToCheckoutSegue" modalPresentationStyle="fullScreen" id="wya-Rh-zQM"/>
                     </connections>

@@ -11,15 +11,18 @@ import SwiftyJSON
 import Alamofire
 import KRProgressHUD
 
+
 class shoppingProductsViewController: UIViewController {
     
+      var cycle = 0
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     // MARK: API URL Declarations
-    let getProductsAPI = "http://ec2-3-88-222-179.compute-1.amazonaws.com/api/store/fetchProducts"
-    let getProductsByRegionAPI = "http://ec2-3-88-222-179.compute-1.amazonaws.com/api/store/fetchProductsByRegion"
+    let getProductsAPI = "http://ec2-3-95-150-6.compute-1.amazonaws.com/api/store/fetchProducts"
+    let getProductsByRegionAPI = "http://ec2-3-95-150-6.compute-1.amazonaws.com/api/store/fetchProductsByRegion"
     
     // Beacon Manager declarations
     let beaconManager = ESTBeaconManager()
@@ -32,6 +35,10 @@ class shoppingProductsViewController: UIViewController {
     var products = [product]()
     var selectedProducts = [product]()
     var previousBeacon:CLBeacon?
+    
+    var count1 = 0
+    var count2 = 0
+    var count3 = 0
     
  
     override func viewDidLoad() {
@@ -102,7 +109,7 @@ class shoppingProductsViewController: UIViewController {
     
     func getShoppingProductsByRegion(region Region:String){
         
-        print("Shopping products by region")
+        print("Shopping products by region : \(Region)")
         
         let parameters: [String:String] = [
             "region":Region
@@ -182,67 +189,151 @@ class shoppingProductsViewController: UIViewController {
 //MARK: Beacon Manager Delegate Methods
 extension shoppingProductsViewController : ESTBeaconManagerDelegate{
     
+  
+    
     func beaconManager(_ manager: Any, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         
-          print(beacons)
-//        print("Major: \(beacons.first!.major)")
-//        print("Minor: \(beacons.first!.minor)")
+        cycle += 1
+        
+        print(beacons)
+        print("Cycle : \(cycle)")                      
+        print("produce count = \(count1)")
+        print("lifestyle count = \(count2)")
+        print("grocery count = \(count3)")
+        
+        
+        if cycle == 5{
+            
+            cycle = 0
+            
+            if count1 > count2 && count1 > count3{
+                getShoppingProductsByRegion(region: "produce")
+            }
+            else if count2 > count1 && count2 > count3{
+                getShoppingProductsByRegion(region: "lifestyle")
+            }
+            else if count3 > count1 && count3 > count2{
+                getShoppingProductsByRegion(region: "grocery")
+            }
+            
+            count1 = 0
+            count2 = 0
+            count3 = 0
+        }
+        
+        
+
        
         var flag = true
-        
         for beacon in beacons{
             
-            if beacon.major == 7518 && beacon.minor == 47661{
+            if beacon.major == 26535 && beacon.minor == 44799{
                 
-                if previousBeacon == nil{
-                    
-                    previousBeacon = beacon
-                    getShoppingProductsByRegion(region: "produce")
-                    flag = false
-                    return
-                        
-                }else{
+                count1 = count1 + 1
+
+//                if count1 > 3{
+//
+//                    if previousBeacon == nil{
+//
+//                        previousBeacon = beacon
+//                        getShoppingProductsByRegion(region: "produce")
+//
+//                        flag = false
+//                        return
+//
+//                    }else{
+//
+//                        if previousBeacon!.major == beacon.major && previousBeacon!.minor == beacon.minor{
+//
+//                            return
+//                        }
+//                        else{
+//
+//                            previousBeacon = beacon
+//                            getShoppingProductsByRegion(region: "produce")
+//                            flag = false
+//                            return
+//                        }
+//                    }
+//
+//                }
                 
-                    if previousBeacon!.major == beacon.major && previousBeacon!.minor == beacon.minor{
-                        return
-                    }
-                    else{
-                        previousBeacon = beacon
-                        getShoppingProductsByRegion(region: "produce")
-                        flag = false
-                        return
-                    }
-                }
+                return
+                
                       
             }
                    
-            if beacon.major == 45153 && beacon.minor == 9209{
+            if beacon.major == 49427 && beacon.minor == 46246{
                       
                 
-                if previousBeacon == nil{
-                    
-                    previousBeacon = beacon
-                    getShoppingProductsByRegion(region: "lifestyle")
-                    flag = false
-                    return
-                    
-                   
-                        
-                }else{
-                    
-                    if previousBeacon!.major == beacon.major && previousBeacon!.minor == beacon.minor{
-                        return
-                    }else{
-                        
-                        previousBeacon = beacon
-                        getShoppingProductsByRegion(region: "lifestyle")
-                        flag = false
-                        return
-                        
-                    }
-                    
-                }
+                count2 = count2 + 1
+
+                
+//                if count2 > 3{
+//                if previousBeacon == nil{
+//
+//                    previousBeacon = beacon
+//                    getShoppingProductsByRegion(region: "lifestyle")
+//                    flag = false
+//                    return
+//
+//
+//
+//                }else{
+//
+//                    if previousBeacon!.major == beacon.major && previousBeacon!.minor == beacon.minor{
+//                        return
+//                    }else{
+//
+//                        previousBeacon = beacon
+//                        getShoppingProductsByRegion(region: "lifestyle")
+//                        flag = false
+//                        return
+//
+//                    }
+//
+//                }
+//                }
+                
+                return
                   
+            }
+            
+            // Code for third Beacon
+            
+            if beacon.major == 15326 && beacon.minor == 56751{
+
+                count3 = count3 + 1
+
+//                if count3 > 3{
+//                if previousBeacon == nil{
+//
+//                    previousBeacon = beacon
+//                    getShoppingProductsByRegion(region: "grocery")
+//                    flag = false
+//                    return
+//
+//
+//
+//                }else{
+//
+//                    if previousBeacon!.major == beacon.major && previousBeacon!.minor == beacon.minor{
+//                        return
+//                    }else{
+//
+//                        previousBeacon = beacon
+//                        getShoppingProductsByRegion(region: "grocery")
+//                        flag = false
+//                        return
+//
+//                    }
+//
+//                }
+//
+//                }
+                
+                return
+
             }
             
         }
@@ -311,9 +402,20 @@ extension shoppingProductsViewController: UICollectionViewDataSource{
     @objc func addToCartButtonTapped(sender: UIButton!){
         
         
-        // TODO: Check if the product is already in the cart
-        selectedProducts.append(products[sender.tag])
+        var flag = true
         
+        for product in selectedProducts{
+            if product.name! == products[sender.tag].name!{
+                product.quantity = product.quantity + 1
+                flag = false
+            }
+        }
+        
+        
+    
+        if flag == true{
+        selectedProducts.append(products[sender.tag])
+        }
         
         KRProgressHUD.showSuccess(withMessage: "\(products[sender.tag].name!) is added to cart")
         

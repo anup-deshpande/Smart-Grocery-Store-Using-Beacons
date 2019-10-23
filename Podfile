@@ -13,6 +13,7 @@ target 'BeaconApp' do
   pod "GMStepper"
   pod "KRProgressHUD"
   
+  
 
   target 'BeaconAppTests' do
     inherit! :search_paths
