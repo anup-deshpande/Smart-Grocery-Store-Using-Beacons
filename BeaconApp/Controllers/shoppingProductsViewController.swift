@@ -21,8 +21,8 @@ class shoppingProductsViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     // MARK: API URL Declarations
-    let getProductsAPI = "http://ec2-3-95-150-6.compute-1.amazonaws.com/api/store/fetchProducts"
-    let getProductsByRegionAPI = "http://ec2-3-95-150-6.compute-1.amazonaws.com/api/store/fetchProductsByRegion"
+    let getProductsAPI = "http://ec2-54-86-229-201.compute-1.amazonaws.com/api/store/fetchProducts"
+    let getProductsByRegionAPI = "http://ec2-54-86-229-201.compute-1.amazonaws.com/api/store/fetchProductsByRegion"
     
     // Beacon Manager declarations
     let beaconManager = ESTBeaconManager()
@@ -196,7 +196,7 @@ extension shoppingProductsViewController : ESTBeaconManagerDelegate{
         cycle += 1
         
         print(beacons)
-        print("Cycle : \(cycle)")                      
+        print("Cycle : \(cycle)")
         print("produce count = \(count1)")
         print("lifestyle count = \(count2)")
         print("grocery count = \(count3)")
@@ -227,7 +227,7 @@ extension shoppingProductsViewController : ESTBeaconManagerDelegate{
         var flag = true
         for beacon in beacons{
             
-            if beacon.major == 26535 && beacon.minor == 44799{
+            if beacon.major == 41072 && beacon.minor == 44931{
                 
                 count1 = count1 + 1
 
@@ -263,7 +263,7 @@ extension shoppingProductsViewController : ESTBeaconManagerDelegate{
                       
             }
                    
-            if beacon.major == 49427 && beacon.minor == 46246{
+            if beacon.major == 15326 && beacon.minor == 56751{
                       
                 
                 count2 = count2 + 1
@@ -301,7 +301,7 @@ extension shoppingProductsViewController : ESTBeaconManagerDelegate{
             
             // Code for third Beacon
             
-            if beacon.major == 15326 && beacon.minor == 56751{
+            if beacon.major == 47152 && beacon.minor == 61548{
 
                 count3 = count3 + 1
 

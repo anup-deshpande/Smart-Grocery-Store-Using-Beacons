@@ -22,8 +22,8 @@ class checkoutViewController: UIViewController {
     @IBOutlet weak var totalAmount: UILabel!
     
     // MARK: API URL declarations
-    let BTGetTokenAPI = "http://ec2-3-95-150-6.compute-1.amazonaws.com/api/payments/getToken"
-    let BTCheckoutAPI = "http://ec2-3-95-150-6.compute-1.amazonaws.com/api/payments/checkout"
+    let BTGetTokenAPI = "http://ec2-54-86-229-201.compute-1.amazonaws.com/api/payments/getToken"
+    let BTCheckoutAPI = "http://ec2-54-86-229-201.compute-1.amazonaws.com/api/payments/checkout"
     
     var selectedProducts = [product]()
     var total:Double = 0
